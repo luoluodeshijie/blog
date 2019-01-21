@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>归来的少年</title>
+  
+  <subtitle>Stay Hungry, Stay Foolish</subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="https://luoluodeshijie.github.io/blog/"/>
+  <updated>2019-01-21T15:19:19.435Z</updated>
+  <id>https://luoluodeshijie.github.io/blog/</id>
+  
+  <author>
+    <name>归来的少年</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数中的call、apply、bind</title>
+    <link href="https://luoluodeshijie.github.io/blog/2019/01/21/%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/"/>
+    <id>https://luoluodeshijie.github.io/blog/2019/01/21/函数中的call、apply、bind/</id>
+    <published>2019-01-21T14:42:50.772Z</published>
+    <updated>2019-01-21T15:19:19.435Z</updated>
+    
+    <content type="html"><![CDATA[<p> <strong>函数中的 call 和 apply 方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以改变函数内部 this 指向来调用函数</span></span><br><span class="line"><span class="comment">// call 和 apply 几乎一样，只是传参的方式不一样</span></span><br><span class="line"><span class="comment">// 两个方法的第一个参数永远是用来指定内部 this 指向</span></span><br><span class="line"><span class="comment">// call 以 , 分隔一个一个传参，apply 必须传递数组，数组会展开一个一个传</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y, z</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, x, y, z)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line">fn.call(obj, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// apply 调用传参，必须传数组，否则就报错，apply 会自动把数组展开，一个一个拿出来，然后作为函数的参数</span></span><br><span class="line">fn.apply(obj, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure></p><p><strong>扩展：arguments 伪数组借用call方法</strong></p><ul><li>伪数组是对象，它的原型链中没有 forEach 方法</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fakeArray = &#123;</span><br><span class="line">    <span class="number">0</span>: <span class="string">'a'</span>,</span><br><span class="line">    <span class="number">1</span>: <span class="string">'b'</span>,</span><br><span class="line">    <span class="number">2</span>: <span class="string">'c'</span>,</span><br><span class="line">    length: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  数组 [] ,可以获取到 forEach 方法，这样，伪数组就可以用 forEach 方法了</span></span><br><span class="line">;[].forEach.call(fakeArray, <span class="function"><span class="keyword">function</span> (<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item, index)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 伪数组借用 call 方法转成数组</span></span><br><span class="line">;[].slice.call(fakeArray)  <span class="comment">// 把整个伪数组截取，返回的就是一个完整的数组</span></span><br></pre></td></tr></table></figure><p><strong>函数的 bind 方法</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bind 和 call 、apply 作用一样</span></span><br><span class="line"><span class="comment">// bind 作用最多的就是用于改变 定时器、forEach 等回调函数内部 this 的指向</span></span><br><span class="line"><span class="comment">// 区别主要在于：</span></span><br><span class="line"><span class="comment">// 1. call 和 apply 是绑定 this 的同时直接调用</span></span><br><span class="line"><span class="comment">// 2. bind 不调用，返回一个绑定了 this 环境的新的函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, a, b, c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'hello'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(obj, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)  <span class="comment">// 直接调用， this 指向传递的第一个参数 obj, 参数是以  , 分隔一个一个传</span></span><br><span class="line">fn.apply(obj, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])  <span class="comment">// 直接调用， this 指向 apply 的第一个参数 obj ，参数是数组</span></span><br><span class="line"><span class="keyword">var</span> newFn = fn.bind(obj, <span class="number">7</span>)  <span class="comment">// 不调用，this指向 第一个参数 obj , bind 参数： 1. 在 bind 的时候可以传参 </span></span><br><span class="line">newFn(<span class="number">8</span>, <span class="number">9</span>)  <span class="comment">// 2. 在调用 bind 之后的函数的时候也可以传参</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; &lt;strong&gt;函数中的 call 和 apply 方法&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/s
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://luoluodeshijie.github.io/blog/2019/01/21/hello-world/"/>
+    <id>https://luoluodeshijie.github.io/blog/2019/01/21/hello-world/</id>
+    <published>2019-01-21T13:20:38.056Z</published>
+    <updated>2019-01-21T13:20:38.056Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
