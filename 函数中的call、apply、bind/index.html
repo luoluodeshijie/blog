@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -153,10 +153,10 @@
 <meta name="keywords" content="returning boy 个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数中的call、apply、bind">
-<meta property="og:url" content="https://luoluodeshijie.github.io/blog/2019/01/21/函数中的call、apply、bind/index.html">
+<meta property="og:url" content="https://luoluodeshijie.github.io/blog/函数中的call、apply、bind/index.html">
 <meta property="og:site_name" content="归来的少年">
 <meta property="og:description" content="函数中的 call 和 apply 方法1234567891011121314// 可以改变函数内部 this 指向来调用函数// call 和 apply 几乎一样，只是传参的方式不一样// 两个方法的第一个参数永远是用来指定内部 this 指向// call 以 , 分隔一个一个传参，apply 必须传递数组，数组会展开一个一个传function fn(x, y, z) &amp;#123;">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-01-21T15:19:19.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数中的call、apply、bind">
@@ -168,7 +168,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/blog/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -176,7 +176,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '{6LKECJ33NQ}',
@@ -190,7 +190,7 @@
 
 
 
-  <link rel="canonical" href="https://luoluodeshijie.github.io/blog/2019/01/21/函数中的call、apply、bind/">
+  <link rel="canonical" href="https://luoluodeshijie.github.io/blog/函数中的call、apply、bind/">
 
 
 
@@ -208,7 +208,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -232,7 +232,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Stay Hungry, Stay Foolish</p>
+        <p class="site-subtitle">愿你走出半生，归来仍是少年</p>
       
   </div>
 
@@ -257,7 +257,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            Home
+            首页
           </a>
         </li>
       
@@ -267,7 +267,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            About
+            关于
           </a>
         </li>
       
@@ -277,7 +277,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -287,7 +287,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -297,7 +297,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -310,7 +310,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
-            Search
+            搜索
           </a>
         </li>
       
@@ -372,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://luoluodeshijie.github.io/blog/blog/2019/01/21/函数中的call、apply、bind/">
+    <link itemprop="mainEntityOfPage" href="https://luoluodeshijie.github.io/blog/blog/函数中的call、apply、bind/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="归来的少年">
@@ -399,9 +399,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-21T22:42:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T22:42:50+08:00">
                 2019-01-21
               </time>
             
@@ -435,9 +435,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   
                 </span>
               
@@ -451,9 +451,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   
                 </span>
               
@@ -584,7 +584,7 @@
                 <a href="/blog/archives/">
               
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -684,7 +684,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -692,7 +692,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -813,6 +813,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>

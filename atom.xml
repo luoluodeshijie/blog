@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>归来的少年</title>
   
-  <subtitle>Stay Hungry, Stay Foolish</subtitle>
+  <subtitle>愿你走出半生，归来仍是少年</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://luoluodeshijie.github.io/blog/"/>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>函数中的call、apply、bind</title>
-    <link href="https://luoluodeshijie.github.io/blog/2019/01/21/%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/"/>
-    <id>https://luoluodeshijie.github.io/blog/2019/01/21/函数中的call、apply、bind/</id>
+    <link href="https://luoluodeshijie.github.io/blog/%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/"/>
+    <id>https://luoluodeshijie.github.io/blog/函数中的call、apply、bind/</id>
     <published>2019-01-21T14:42:50.772Z</published>
     <updated>2019-01-21T15:19:19.435Z</updated>
     
